@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        /* CSS for Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #f3f4f6, #e0e7ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+            color: #4a90e2;
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        form input:focus, form textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+        form button {
+            background-color: #4a90e2;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border: none;
+        }
+        form button:hover {
+            background-color: #357abd;
+        }
+        #status {
+            text-align: center;
+            color: #2d7c2d;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Contact Us</h1>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <p id="status"></p>
+    </div>
+    <script>
+        // JavaScript for Form Validation and Interactivity
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent page refresh
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (name && email && message) {
+                // Simulate form submission success
+                status.textContent = 'Thank you for your message! We will get back to you soon.';
+                form.reset();
+            } else {
+                status.textContent = 'Please fill out all fields correctly.';
+                status.style.color = '#e74c3c'; // Red for errors
+            }
+        });
+    </script>
+</body>
+</html>
